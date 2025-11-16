@@ -1,0 +1,168 @@
+/* Contenedor del header y espacio arriba */
+.navbar__header {
+    padding-top: 25px;
+    background: #f6f6f6;
+    /* gris oscuro casi negro */
+}
+
+/* === Navbar === */
+.navbar {
+    background: #111827de;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: #ffffff;
+    /* texto blanco */
+    border-radius: 6px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.7rem 1rem;
+    padding: 0 20px;
+    height: 60px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar__logo img {
+    height: 120px;
+    /* Ajusta el tamaño del logo */
+    width: auto;
+    /* Mantiene la proporción */
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.navbar__icon {
+    font-size: 1.5rem;
+}
+
+/* Contenedor del buscador */
+.navbar__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Input de texto */
+.search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    font-size: 16px;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* Botón de búsqueda */
+.search-button {
+
+    background: #fdfcfb2b;
+    border: 200px;
+    margin: 0;
+    /* elimina margen fantasma */
+    padding: 0;
+    /* elimina el “colchón” extra */
+    width: 40px;
+    /* tamaño fijo del botón */
+    height: 0%;
+    /* que ocupe todo el alto del buscador */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.navbar__login,
+.navbar__orders,
+.navbar__cart {
+    cursor: pointer;
+}
+
+.navbar__cart {
+    position: relative;
+}
+
+.navbar__cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+
+/* Menú desplegable */
+.navbar__dropdown {
+    display: none;
+    position: absolute;
+    top: 8%;
+    /* debajo del navbar */
+    left: 20%;
+    background: #f4f4f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    list-style: none;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    min-width: 15%;
+}
+
+.navbar__dropdown li {
+    padding: 0.8rem 1rem;
+}
+
+.navbar__dropdown li a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 500;
+}
+
+.navbar__dropdown li:hover {
+    background: #c7c4c44f;
+    cursor: pointer;
+}
+
+/* Mostrar cuando está activo */
+.navbar__dropdown.active {
+    display: block;
+}
+
+nav ul li a {
+    display: block;
+    /* hace que el enlace ocupe todo el li */
+    width: 100%;
+    /* ocupa todo el ancho */
+    padding: 10px 15px;
+    /* aumenta área clickeable */
+    text-decoration: none;
+    color: inherit;
+    /* mantiene color del texto */
+}

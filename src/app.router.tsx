@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import { ShopLayout } from "./store/layout/ShopLayout";
+import { StoreLayout } from "./store/layout/StoreLayout";
 import { HomePages } from "./store/pages/home/HomePages";
 import { ProductPage } from "./store/pages/product/ProductPage";
 import { GenderPage } from "./store/pages/gender/GenderPage";
@@ -18,7 +18,7 @@ export const appRouter = createBrowserRouter([
     /**Public Routes */
     {
         path: '',
-        element: <ShopLayout />,
+        element: <StoreLayout />,
         children: [
             {
                 index: true,

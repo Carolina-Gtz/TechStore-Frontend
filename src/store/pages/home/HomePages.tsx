@@ -1,10 +1,15 @@
-import { Button } from "@/components/ui/button"
+import { CustomHeader } from "@/shared/components/CustomHeader";
+import { CustomBanner } from "@/store/components/CustomBanner"
+import { CustomJumbotron } from "@/store/components/CustomJumbotron"
 
 export const HomePages = () => {
-    return (
-        <div>
-            <h1 className="font-montserrat font-bold" > HomePages  </h1>
 
-        </div>
+    // const [showLogin, setShowLogin] = useState(false);
+    return (
+        <>
+            <CustomHeader />
+            <CustomJumbotron description="Todo lo que necesitas" />
+            <CustomBanner />
+        </>
     )
 }

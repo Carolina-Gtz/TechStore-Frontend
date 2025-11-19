@@ -33,7 +33,7 @@ export const CustomHeader = () => {
                             <Link to='/admin' className="text-sm font-medium transition-colors hover:text-primary">
                                 Menu
                             </Link>
-                            <Link to='/admin' className="text-sm font-medium transition-colors hover:text-primary">
+                            <Link to='/product/:idSlug' className="text-sm font-medium transition-colors hover:text-primary">
                                 Catalogo
                             </Link>
                         </nav>

@@ -3,8 +3,13 @@ import { Link } from "react-router";
 
 export const CustomLogo = () => {
     return (
-        <Link to="/">
-            <img src={logo} className="pl-20 w-60 h-25  mt-0.5 ml-5" alt="TechStore Logo" />
+        <Link to="/" className="flex justify-center">
+            <img
+                src={logo}
+                className="w-48 h-auto"
+                alt="TechStore Logo"
+            />
         </Link>
+
     );
 };

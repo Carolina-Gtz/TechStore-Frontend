@@ -10,6 +10,5 @@ export const CustomLogo = () => {
                 alt="TechStore Logo"
             />
         </Link>
-
     );
 };

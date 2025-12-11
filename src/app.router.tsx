@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router";
 import { StoreLayout } from "./store/layout/StoreLayout";
 import { HomePages } from "./store/pages/home/HomePages";
 import { ProductPage } from "./store/pages/product/ProductPage";
-import { GenderPage } from "./store/pages/gender/GenderPage";
+import { CategoryPage } from "./store/pages/category/CategoryPage";
 import { LoginPage } from "./auth/pages/login/LoginPage";
 import { RegisterPage } from "./auth/pages/register/RegisterPage";
 import { DashboardPage } from "./admin/pages/dashboard/DashboardPage";
@@ -30,8 +30,8 @@ export const appRouter = createBrowserRouter([
                 element: <ProductPage />
             },
             {
-                path: 'gender/:gender',
-                element: <GenderPage />
+                path: 'categoria/:category',
+                element: <CategoryPage />
             },
         ]
     },

@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { CustomProductCard } from "./CustomProductCard";
-import { featuredProducts, products, promotionalSlides } from '../../data/products.data';
+import { promotionalSlides } from '../../data/products.data';
+import { useFeacturedProducts } from "../hooks/useFeacturedProducts";
+import { useBestSellingProducts } from "../hooks/useBestSellingProducts";
+import { CustomCategoriesMenu } from "./CustomCategoriesMenu";
 
 export function CustomBanner() {
     const [activeSlide, setActiveSlide] = useState(0);
 
+    const { data: featuredProducts } = useFeacturedProducts();
+    const { data: bestSellingProducts } = useBestSellingProducts();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -18,22 +22,8 @@ export function CustomBanner() {
     return (
         <main className="px-4 md:px-10 py-6">
             {/* Categorías */}
-            <section className="mb-10">
-                <h2 className="text-3xl font-bold mb-8 text-center">Categorías </h2>
+            <CustomCategoriesMenu />
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                    {["Tecnología", "Accesorios", "Hogar", "Moda", "Salud"].map(
-                        (cat, i) => (
-                            <Card
-                                key={i}
-                                className="cursor-pointer hover:shadow-md transition border p-4 text-center font-medium"
-                            >
-                                {cat}
-                            </Card>
-                        )
-                    )}
-                </div>
-            </section>
             {/* Banner Slider */}
             <section className="relative w-full h-56 md:h-72 lg:h-96 overflow-hidden rounded-2xl shadow-lg mb-10">
                 {promotionalSlides.map((s, index) => (
@@ -60,10 +50,11 @@ export function CustomBanner() {
 
 
             {/* Productos Destacados */}
-            <CustomProductCard title={"Productos Destacados"} description={""} products={products} />
+            <CustomProductCard title={"Productos Destacados"} description={""} products={featuredProducts ?? []} />
 
             {/* Más vendidos */}
-            <CustomProductCard title={"Mas vendidos"} description={""} products={featuredProducts} />
+            {/* <CustomProductCard title={"Mas vendidos"} description={""} products={featuredProducts} /> */}
+            <CustomProductCard title={"Mas vendidos"} description={""} products={bestSellingProducts ?? []} />
 
         </main>
     );

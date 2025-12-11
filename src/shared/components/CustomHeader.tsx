@@ -6,6 +6,7 @@ import { CustomLogo } from "@/components/custom/customLogo";
 import { Link } from "react-router";
 import { LoginPage } from "@/auth/pages/login/LoginPage";
 import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog";
+import { CustomSearchBar } from "./CustomSearchBar";
 
 
 export const CustomHeader = () => {
@@ -70,12 +71,7 @@ export const CustomHeader = () => {
 
                         {/* Search and Cart */}
                         <div className="flex items-center space-x-4">
-                            <div className="hidden md:flex items-center space-x-2">
-                                <div className="relative">
-                                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                                    <Input placeholder="Buscar productos..." className="pl-12 w-84 h-9" />
-                                </div>
-                            </div>
+                            <CustomSearchBar />
 
                             <Button variant="ghost" size="icon" className="md:hidden">
                                 <Search className="h-5 w-5" />

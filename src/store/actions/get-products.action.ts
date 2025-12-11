@@ -3,6 +3,7 @@ import type { ProductsResponse } from "@/interfaces/products.response";
 
 interface Options {
     category?: string;
+    query?: string;
 }
 
 export const getProductsAction = async (
@@ -11,11 +12,12 @@ export const getProductsAction = async (
 
     console.log("URL usada:", techStoreApi.defaults.baseURL);
 
-    const { category } = option
+    const { category, query } = option
     console.log({ category });
+    console.log({ query });
 
     const { data } = await techStoreApi.get<ProductsResponse[]>
-        ('/products', { params: { category }, })
+        ('/products', { params: { category, query }, })
 
 
     const productosConURL = data.map(product => ({

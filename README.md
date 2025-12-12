@@ -83,17 +83,24 @@ Crear un archivo .env basado en .env.template:
 VITE_API_URL=http://localhost:3000
 ```
 
-### 4. Ejecutar en modo desarrollo
+### 4. Verificar que el backend este corriendo en el puerto 3000
+```bash
+http://localhost:3000
+```
+
+### 5. Ejecutar en modo desarrollo
 ```bash
 npm run dev
 ```
-El proyecto estará disponible en:
-👉 http://localhost:5173
 
-### 5. Build para producción
+### 6. Build para producción
 ```bash
 npm run build
 ```
+
+El proyecto estará disponible en:
+👉 http://localhost:5173
+
 
 ## 🧠 Arquitectura Frontend + Backend
 

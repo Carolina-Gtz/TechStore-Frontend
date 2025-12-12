@@ -1,109 +1,97 @@
 # 🛍️ TechStore - Frontend (React + Vite)
 
 ## 📘 Descripción General
-**TechStore** es una aplicación web de comercio electrónico diseñada para ofrecer una experiencia de compra completa, moderna y escalable.  
-Este repositorio contiene el **frontend** del proyecto, desarrollado con **React**, **Vite** y una arquitectura modular basada en componentes, servicios y rutas.
+**TechStore Online — Frontend** 
+TechStore Online es una interfaz de usuario desarrollada en React, diseñada para ofrecer una experiencia de compra rápida, optimizada para dispositivos móviles y optimización con React Query, manejo eficiente de caché, estado y actualizaciones de datos.
 
-El sistema permite a los usuarios navegar por el catálogo, registrarse, iniciar sesión, gestionar su carrito, realizar pedidos y seguir el estado de sus compras.  
-Los administradores pueden gestionar productos, inventario y pedidos desde un panel especializado.
+El sistema permite a los usuarios navegar por el catálogo, registrarse, iniciar sesión, gestionar su carrito, realizar pedidos y seguir el estado de sus compras. Los administradores pueden gestionar productos, inventario y pedidos desde un panel especializado.
 
----
-
-## 🧩 Arquitectura del Proyecto
-
-| Carpeta / Archivo | Propósito                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------- |
-| `public/`         | Archivos estáticos accesibles directamente (íconos, favicon, imágenes).                     |
-| `src/assets/`     | Recursos multimedia y estilos globales que usa tu app (logos, CSS global, fuentes).         |
-| `src/components/` | Componentes reutilizables como `Navbar`, `Footer`, `ProductCard`, `CartItem`, etc.          |
-| `src/pages/`      | Las **vistas principales** del sitio (Home, Login, Register, Catalogo, Checkout, Admin).    |
-| `src/routes/`     | Configuración de las rutas de navegación con React Router (por roles o secciones).          |
-| `src/services/`   | Lógica de conexión con la **API REST** (peticiones HTTP a tu backend con Axios).            |
-| `src/context/`    | Estados globales compartidos, por ejemplo `AuthContext`, `CartContext`, etc.                |
-| `src/hooks/`      | **Custom Hooks** (por ejemplo, `useAuth`, `useFetch`, `useCart`), para lógica reutilizable. |
-| `src/utils/`      | Funciones auxiliares (validaciones, formateo de precios, control de tokens).                |
-| `src/styles/`     | Estilos CSS globales o configuraciones Tailwind personalizadas.                             |
-| `App.jsx`         | Componente raíz donde se cargan las rutas y la estructura base de la app.                   |
-| `main.jsx`        | Punto de entrada principal donde React monta el árbol de componentes.                       |
-| `.env.example`    | Plantilla para variables de entorno (como `VITE_API_URL`).                                  |
-
+El frontend consume una API REST real, mostrando productos, categorías, carritos de compra y flujos de autenticación.
 ---
 
 ## ⚙️ Tecnologías Principales
 
-| Tecnología | Descripción |
-|-------------|-------------|
-| **React 18** | Librería base para el desarrollo del frontend |
-| **Vite** | Entorno de desarrollo rápido y optimizado |
-| **React Router v6** | Manejo de rutas y navegación SPA |
-| **Context API / Hooks** | Gestión del estado global |
-| **Tailwind CSS** | Estilos modernos y responsivos |
-| **Axios** | Consumo de la API REST del backend |
-| **ESLint + Prettier** | Formato y buenas prácticas de código |
-
+- React + Vite
+- TypeScript
+- React Router
+- TanStack React Query
+- Axios
+- TailwindCSS
+- Shadcn/UI
+- ESLint + Prettier
+  
 ---
 
 ## 🚀 Funcionalidades Principales
 
+Catálogo dinámico de productos, Secciones destacadas y productos más vendidos renderizados desde el backend.
+Consumo real desde backend, incluyendo filtros por categoría, búsqueda y productos destacados.
+
 ### 👤 Autenticación
-- **RF01:** Registro de usuarios  
-- **RF02:** Inicio de sesión  
-- **RF03:** Recuperación de contraseña  
-- **RF04:** Edición de perfil  
-- **RF05:** Roles de usuario (cliente / administrador)  
-- **RF06:** Permisos para administradores  
+Login integrado con API (JWT) autenticación de usuario, registro de usuarios, recuperación de contraseña,
+Edición de perfil: nombre correo, contraseña, dirección de envío.
 
 ### 🛒 Catálogo y Carrito
-- **RF07:** Mostrar catálogo de productos  
-- **RF08:** Disponibilidad según inventario  
-- **RF09:** Navegación por categorías  
-- **RF10:** Búsqueda y filtros  
-- **RF11:** Agregar al carrito  
-- **RF12:** Modificar cantidad  
-- **RF13:** Eliminar productos  
-- **RF14:** Resumen del carrito  
-- **RF15:** Guardado temporal del carrito  
-
-### 💳 Checkout y Pedidos
-- **RF16:** Selección de dirección de envío  
-- **RF17:** Selección de método de pago  
-- **RF18:** Resumen del pedido  
-- **RF19:** Confirmación de pago  
-- **RF20:** Generación de número de pedido  
-- **RF21:** Historial de pedidos  
+Mostrar catálogo de productos, navegación por categorías, búsqueda y filtros 
+Agregar, modificar y eliminar productos, mostrar disponibilidad según inventario.
+Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carrito, guardado temporal del carrito  
+---
 
 ### ⚙️ Administración
-- **RF22:** Filtros de pedidos por fecha/estado  
-- **RF23:** Agregar productos  
-- **RF24:** Editar productos  
-- **RF25:** Eliminar productos  
-- **RF26:** Actualizar stock  
-- **RF27:** Gestionar categorías  
-- **RF28:** Ver pedidos pendientes  
-- **RF29:** Gestión de envío de productos  
-
+- Edición de perfil: nombre correo, contraseña, Roles de usuario (cliente / administrador)  
+- Agregar, editar, eliminar productos, actualizar stock, gestionar categorías  
+- Ver pedidos, estado pendientes y fecha,   
+- Filtros de pedidos por fecha/estado,
+- Gestión de envío de productos
 ---
+
+### 💳 Checkout y Pedidos
+Selección de dirección de envío, selección de método de pago, resumen del pedido, confirmación de pago, generación de número de pedido  
+---
+
+## Instalación y ejecución
+
+### 1. Clonar el repositorio
+
+```bash
+[$ npm install](https://github.com/Carolina-Gtz/TechStore-Frontend)
+```
+
+```bash
+$ git clone https://github.com/Carolina-Gtz/TechStore-Frontend
+cd techstore-frontend
+```
+### 2. Instalar dependencias
+```bash
+$ npm install
+```
+
+### 3. Configurar variables de entorno
+Crear un archivo .env basado en .env.template:
+```bash
+VITE_API_URL=http://localhost:3000
+```
+
+### 4. Ejecutar en modo desarrollo
+```bash
+$ npm run dev
+```
+El proyecto estará disponible en:
+👉 http://localhost:5173
+
+### 5. Build para producción
+```bash
+$ npm run build
+```
 
 ## 🧠 Arquitectura Frontend + Backend
 
 El proyecto está compuesto por dos repositorios principales:
 
-| Módulo | Descripción | Repositorio |
-|--------|--------------|-------------|
-| **Frontend (React + Vite)** | Interfaz web con integración API REST | [TechStore-Frontend](https://github.com/Carolina-Gtz/TechStore-Frontend) |
-| **Backend (Node.js + Express)** | API RESTful, base de datos y lógica de negocio | [TechStore-Backend](https://github.com/Carolina-Gtz/TechStore-Backend) |
+**Frontend (React + Vite)** | Interfaz web con integración API REST | [TechStore-Frontend](https://github.com/Carolina-Gtz/TechStore-Frontend) |
+**Backend (Node.js + Express)** | API RESTful, base de datos y lógica de negocio | [TechStore-Backend](https://github.com/Carolina-Gtz/TechStore-Backend) |
 
 Ambos proyectos se comunican mediante solicitudes HTTP a través de la **API REST** implementada en el backend.
-
----
-
-## 🧪 Estado Actual del Proyecto
-
-| Estado | Descripción |
-|---------|--------------|
-| ✅ Completado | Diseño inicial, autenticación, carrito, catálogo |
-| 🚧 En desarrollo | Checkout, gestión de pedidos, panel administrador |
-| 📅 Próximos pasos | Integración total con backend, despliegue y pruebas |
 
 ---
 

@@ -65,16 +65,16 @@ Selección de dirección de envío, selección de método de pago, resumen del p
 ### 1. Clonar el repositorio
 
 ```bash
-$ npm install https://github.com/Carolina-Gtz/TechStore-Frontend
+npm install https://github.com/Carolina-Gtz/TechStore-Frontend
 ```
 
 ```bash
-$ git clone https://github.com/Carolina-Gtz/TechStore-Frontend
+git clone https://github.com/Carolina-Gtz/TechStore-Frontend
 cd techstore-frontend
 ```
 ### 2. Instalar dependencias
 ```bash
-$ npm install
+npm install
 ```
 
 ### 3. Configurar variables de entorno
@@ -85,14 +85,14 @@ VITE_API_URL=http://localhost:3000
 
 ### 4. Ejecutar en modo desarrollo
 ```bash
-$ npm run dev
+npm run dev
 ```
 El proyecto estará disponible en:
 👉 http://localhost:5173
 
 ### 5. Build para producción
 ```bash
-$ npm run build
+npm run build
 ```
 
 ## 🧠 Arquitectura Frontend + Backend

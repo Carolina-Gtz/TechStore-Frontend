@@ -29,16 +29,20 @@ Catálogo dinámico de productos, Secciones destacadas y productos más vendidos
 Consumo real desde backend, incluyendo filtros por categoría, búsqueda y productos destacados.
 
 ### 👤 Autenticación
+
 Login integrado con API (JWT) autenticación de usuario, registro de usuarios, recuperación de contraseña,
 Edición de perfil: nombre correo, contraseña, dirección de envío.
+---
 
 ### 🛒 Catálogo y Carrito
+
 Mostrar catálogo de productos, navegación por categorías, búsqueda y filtros 
 Agregar, modificar y eliminar productos, mostrar disponibilidad según inventario.
-Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carrito, guardado temporal del carrito  
+Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carrito, guardado temporal del carrito 
 ---
 
 ### ⚙️ Administración
+
 - Edición de perfil: nombre correo, contraseña, Roles de usuario (cliente / administrador)  
 - Agregar, editar, eliminar productos, actualizar stock, gestionar categorías  
 - Ver pedidos, estado pendientes y fecha,   
@@ -47,6 +51,7 @@ Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carri
 ---
 
 ### 💳 Checkout y Pedidos
+
 Selección de dirección de envío, selección de método de pago, resumen del pedido, confirmación de pago, generación de número de pedido  
 ---
 

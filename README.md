@@ -100,7 +100,7 @@ $ npm run build
 El proyecto está compuesto por dos repositorios principales:
 
 **Frontend (React + Vite)** | Interfaz web con integración API REST | [TechStore-Frontend](https://github.com/Carolina-Gtz/TechStore-Frontend) |
-**Backend (Node.js + Express)** | API RESTful, base de datos y lógica de negocio | [TechStore-Backend](https://github.com/Carolina-Gtz/TechStore-Backend) |
+**Backend (Node.js + NestJS)** | API RESTful, base de datos y lógica de negocio | [TechStore-Backend](https://github.com/Carolina-Gtz/TechStore-Backend) |
 
 Ambos proyectos se comunican mediante solicitudes HTTP a través de la **API REST** implementada en el backend.
 

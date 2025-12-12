@@ -65,7 +65,7 @@ Selección de dirección de envío, selección de método de pago, resumen del p
 ### 1. Clonar el repositorio
 
 ```bash
-[$ npm install](https://github.com/Carolina-Gtz/TechStore-Frontend)
+$ npm install https://github.com/Carolina-Gtz/TechStore-Frontend
 ```
 
 ```bash

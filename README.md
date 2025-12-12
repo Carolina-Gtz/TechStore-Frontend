@@ -1,12 +1,13 @@
 # 🛍️ TechStore - Frontend (React + Vite)
 
-## 📘 Descripción General
 **TechStore Online — Frontend** 
+
 TechStore Online es una interfaz de usuario desarrollada en React, diseñada para ofrecer una experiencia de compra rápida, optimizada para dispositivos móviles y optimización con React Query, manejo eficiente de caché, estado y actualizaciones de datos.
 
 El sistema permite a los usuarios navegar por el catálogo, registrarse, iniciar sesión, gestionar su carrito, realizar pedidos y seguir el estado de sus compras. Los administradores pueden gestionar productos, inventario y pedidos desde un panel especializado.
 
 El frontend consume una API REST real, mostrando productos, categorías, carritos de compra y flujos de autenticación.
+
 ---
 
 ## ⚙️ Tecnologías Principales

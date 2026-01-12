@@ -22,9 +22,8 @@ export const getProductsAction = async (
 
     const productosConURL = data.map(product => ({
         ...product,
-        imagen: `${import.meta.env.VITE_API_URL}${product.imagen}`
+        imagen: `${import.meta.env.VITE_ASSETS_URL}${product.imagen}`
     }))
-    console.log(data)
     return productosConURL
 
 }

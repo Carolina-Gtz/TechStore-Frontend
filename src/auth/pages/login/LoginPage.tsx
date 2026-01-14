@@ -1,8 +1,26 @@
+import { loginAction } from "@/auth/actions/login.action";
 import { CustomLogo } from "@/components/custom/customLogo";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router";
+import type { FormEvent } from "react";
+import { Link, useNavigate } from "react-router";
 
 export function LoginPage() {
+
+    const navigate = useNavigate();
+    const handleLogin = async (even: FormEvent<HTMLFormElement>) => {
+        even.preventDefault();
+        const formData = new FormData(even.target as HTMLFormElement);
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+
+        try {
+            const data = await loginAction(email, password);
+            localStorage.setItem('token', data.token)
+            navigate('/');
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
 
         <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
@@ -27,9 +45,11 @@ export function LoginPage() {
                 {/* Formulario */}
                 <form
                     className="space-y-4 "
+                    onSubmit={handleLogin}
                 >
                     <input
                         type="email"
+                        name="email"
                         placeholder="Correo electrónico"
                         className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-black outline-none"
                         required
@@ -37,6 +57,7 @@ export function LoginPage() {
 
                     <input
                         id="password"
+                        name="password"
                         type="password"
                         placeholder="Contraseña"
                         className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-black outline-none"

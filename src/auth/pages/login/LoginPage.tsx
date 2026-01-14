@@ -1,4 +1,4 @@
-import { loginAction } from "@/auth/actions/login.action";
+import { useAuthStore } from "@/auth/store/auth.store";
 import { CustomLogo } from "@/components/custom/customLogo";
 import { Button } from "@/components/ui/button";
 import type { FormEvent } from "react";
@@ -7,19 +7,24 @@ import { Link, useNavigate } from "react-router";
 export function LoginPage() {
 
     const navigate = useNavigate();
+    const { login } = useAuthStore()
+
     const handleLogin = async (even: FormEvent<HTMLFormElement>) => {
         even.preventDefault();
+
+
         const formData = new FormData(even.target as HTMLFormElement);
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
 
-        try {
-            const data = await loginAction(email, password);
-            localStorage.setItem('token', data.token)
+        const isValid = await login(email, password)
+        if (isValid) {
             navigate('/');
-        } catch (error) {
-            console.log(error)
+            return
+
         }
+
+        console.log('error')
     }
     return (
 

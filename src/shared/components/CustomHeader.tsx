@@ -7,11 +7,14 @@ import { Link } from "react-router";
 import { LoginPage } from "@/auth/pages/login/LoginPage";
 import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog";
 import { CustomSearchBar } from "./CustomSearchBar";
+import { useAuthStore } from "@/auth/store/auth.store";
 
 
 export const CustomHeader = () => {
     const [cartCount] = useState(0);
     // const [showLogin, setShowLogin] = useState(false);
+
+    const { user, logout } = useAuthStore();
 
     return (
 
@@ -59,12 +62,29 @@ export const CustomHeader = () => {
                         <div className="flex items-center space-x-4 pl-9 w-64 h-9" >
                             <div className="text-sm font-medium transition-colors hover:text-primary">
                                 Hola,<br />
-                                <strong>
-                                    <Link to="/auth/login"
-                                    // onClick={() => setShowLogin(true)}
-                                    >
-                                        Inicia sesión
-                                    </Link> </strong>
+
+                                {
+                                    !user ? (
+
+                                        <strong>
+                                            <Link to="/auth/login"
+                                            // onClick={() => setShowLogin(true)}
+                                            >
+                                                Inicia sesión
+                                            </Link> </strong>
+
+                                    ) : (
+                                        <div className="user-actions">
+                                            <strong className="user-name">{user.fullName}</strong>
+                                            <Link to="/" className="logout-link"
+                                                onClick={logout}
+                                            >
+                                                <span>Cerrar sesión </span>
+                                            </Link>
+
+                                        </div>
+                                    )
+                                }
                             </div>
 
                         </div>
@@ -76,6 +96,7 @@ export const CustomHeader = () => {
                             <Button variant="ghost" size="icon" className="md:hidden">
                                 <Search className="h-5 w-5" />
                             </Button>
+
 
                             <Button variant="ghost" size="icon" className="relative">
                                 <ShoppingBag className="h-5 w-5" />

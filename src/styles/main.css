@@ -166,3 +166,9 @@ nav ul li a {
     color: inherit;
     /* mantiene color del texto */
 }
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

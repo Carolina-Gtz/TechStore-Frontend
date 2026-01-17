@@ -11,6 +11,9 @@ type AuthState = {
     token: string | null,
     authStatus: AuthStatus
 
+    /**Cetters */
+    isAdmin: () => boolean;
+
     /**Actions */
     login: (email: string, password: string) => Promise<boolean>;
     logout: () => void;
@@ -18,11 +21,22 @@ type AuthState = {
 
 };
 
-export const useAuthStore = create<AuthState>()((set) => ({
+export const useAuthStore = create<AuthState>()((set, get) => ({
+    /**Estado Inicial */
     user: null,
     token: null,
     authStatus: 'checking',
 
+    /**Getters */
+    isAdmin: () => {
+        const roles = get().user?.roles || [];
+        return roles.includes('admin');
+        /** o
+         return !!get().user?.roles.includes('admin');
+         */
+    },
+
+    /**Action */
     login: async (email, password) => {
 
         console.log({ email, password })

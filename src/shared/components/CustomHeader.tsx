@@ -12,7 +12,7 @@ export const CustomHeader = () => {
 
     const [cartCount] = useState(0);
 
-    const { user, logout } = useAuthStore();
+    const { authStatus, isAdmin, user, logout } = useAuthStore();
 
     return (
 
@@ -42,13 +42,14 @@ export const CustomHeader = () => {
                                 >
                                     Catálogo
                                 </Link>
-
-                                <Link
-                                    to="/admin"
-                                    className="text-sm font-semibold text-red-900 underline underline-offset-4 decoration-gray-400 transition hover:text-black hover:decoration-gray-600"
-                                >
-                                    Admin
-                                </Link>
+                                {isAdmin() && (
+                                    <Link
+                                        to="/admin"
+                                        className="text-sm font-semibold text-red-900 underline underline-offset-4 decoration-gray-400 transition hover:text-black hover:decoration-gray-600"
+                                    >
+                                        Admin
+                                    </Link>
+                                )}
                             </nav>
 
                             {/* 🛒 Cart - always visible */}
@@ -62,7 +63,7 @@ export const CustomHeader = () => {
                             </Button>
 
                             {/* 👤 Auth */}
-                            {!user ? (
+                            {(authStatus === 'not-authenticated') ? (
                                 <Link
                                     to="/auth/login"
                                     className="flex flex-col text-sm leading-tight hover:text-primary"
@@ -85,7 +86,7 @@ export const CustomHeader = () => {
 
                                     <div className="flex items-center gap-6">
                                         <strong className="font-semibold">
-                                            {user.fullName.split(" ")[0]}
+                                            {user?.fullName.split(" ")[0]}
                                         </strong>
 
                                         <button

@@ -7,9 +7,6 @@ export const useProducts = () => {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query') || undefined;
 
-    console.log({ category })
-    console.log({ query })
-
     return useQuery({
         queryKey: ['products', { category, query }],
         queryFn: () => getProductsAction({ category, query }),

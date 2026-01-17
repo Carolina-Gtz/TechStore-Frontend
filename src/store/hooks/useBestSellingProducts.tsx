@@ -6,5 +6,6 @@ export const useBestSellingProducts = () => {
     return useQuery({
         queryKey: ['bestProducts'],
         queryFn: getBestSellingProductsAction,
+        staleTime: 1000 * 60 * 5,
     })
 }

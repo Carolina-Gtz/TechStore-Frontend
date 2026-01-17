@@ -5,8 +5,9 @@ import { CustomProductCard } from "@/store/components/CustomProductCard"
 import { useProducts } from "@/store/hooks/useProducts"
 
 export const ProductPage = () => {
+
     const { data } = useProducts();
-    console.log(data)
+
     return (
         <>
             <CustomHeader />

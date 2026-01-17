@@ -21,10 +21,10 @@ export function LoginPage() {
         if (isValid) {
             navigate('/');
             return
-
         }
-
-        console.log('error')
+        if (!isValid) {
+            throw new Error('error te has autenticado')
+        }
     }
     return (
 

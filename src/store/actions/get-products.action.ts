@@ -6,16 +6,9 @@ interface Options {
     query?: string;
 }
 
-export const getProductsAction = async (
-    option: Options
-): Promise<ProductsResponse[]> => {
-
-    console.log("URL usada:", techStoreApi.defaults.baseURL);
+export const getProductsAction = async (option: Options): Promise<ProductsResponse[]> => {
 
     const { category, query } = option
-    console.log({ category });
-    console.log({ query });
-
     const { data } = await techStoreApi.get<ProductsResponse[]>
         ('/products', { params: { category, query }, })
 
@@ -24,6 +17,8 @@ export const getProductsAction = async (
         ...product,
         imagen: `${import.meta.env.VITE_ASSETS_URL}${product.imagen}`
     }))
+
+    console.log({ data });
     return productosConURL
 
 }

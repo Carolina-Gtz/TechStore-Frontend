@@ -5,7 +5,7 @@ import { useParams, useSearchParams } from "react-router"
 export const useProducts = () => {
     const { category } = useParams();
     const [searchParams] = useSearchParams();
-    const query = searchParams.get('query') || undefined;
+    const query = searchParams.get('query') || "";
 
     return useQuery({
         queryKey: ['products', { category, query }],

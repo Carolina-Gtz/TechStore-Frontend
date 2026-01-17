@@ -1,63 +1,77 @@
 import type { User } from "@/interfaces/user.interface"
 import { create } from "zustand"
 import { loginAction } from "../actions/login.action";
+import { checkAuthAction } from "../actions/check-auth.action";
+
+type AuthStatus = 'authenticated' | 'not-authenticated' | 'checking';
 
 type AuthState = {
     //properties
     user: User | null,
     token: string | null,
-    
+    authStatus: AuthStatus
+
     /**Actions */
-    login:( email:string, password:string) => Promise<boolean>;
-    logout:( ) => void;
+    login: (email: string, password: string) => Promise<boolean>;
+    logout: () => void;
+    checkAuthStatus: () => Promise<boolean>;
 
 };
 
 export const useAuthStore = create<AuthState>()((set) => ({
-     user:  null,
-    token:  null,
+    user: null,
+    token: null,
+    authStatus: 'checking',
 
-    login: async (email, password)=>{
-        
-    console.log({email,password})
+    login: async (email, password) => {
 
+        console.log({ email, password })
 
-try {
-    
-    const data = await loginAction(email, password);
-    localStorage.setItem('token', data.token)
-    set({ user:data.user, token: data.token});
-    
-    return true;
+        try {
 
-} catch (error) {
-   
-    localStorage.removeItem('token');
-    set({ user:null, token: null});
-    console.log(error)
-    
-    return false;
-}
-},
-logout: ()=>{
-    localStorage.removeItem('token')
-    set({ user:null, token: null});
-}
-    
+            const data = await loginAction(email, password);
+            localStorage.setItem('token', data.token)
+            set({
+                user: data.user,
+                token: data.token,
+                authStatus: 'authenticated'
+            });
+
+            return true;
+        } catch (error) {
+
+            localStorage.removeItem('token');
+            set({ user: null, token: null, authStatus: 'not-authenticated' });
+            console.log(error)
+
+            return false;
+        }
+    },
+
+    logout: () => {
+        localStorage.removeItem('token')
+        set({ user: null, token: null, authStatus: 'not-authenticated' });
+    },
+
+    checkAuthStatus: async () => {
+        try {
+            const { user, token } = await checkAuthAction();
+            set({
+                user: user,
+                token: token,
+                authStatus: 'authenticated'
+            })
+            return true
+
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            set({
+                user: undefined,
+                token: undefined,
+                authStatus: 'not-authenticated'
+            })
+            return false
+        }
+    }
+
 }))
-
-
-
-// type AuthState = {
-    
-    /*Properties*/
-    // count: number
-
-    /**Actions */
-    // inc: () => void
-// }
-
-// export const useStore = create<Store>()((set) => ({
-//     count: 1,
-//     inc: () => set((state) => ({ count: state.count + 1 })),
-// }))

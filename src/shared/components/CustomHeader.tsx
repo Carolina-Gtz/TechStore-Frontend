@@ -1,110 +1,104 @@
-import { Search, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { CustomLogo } from "@/components/custom/customLogo";
 import { Link } from "react-router";
-import { LoginPage } from "@/auth/pages/login/LoginPage";
-import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog";
+// import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog";
 import { CustomSearchBar } from "./CustomSearchBar";
 import { useAuthStore } from "@/auth/store/auth.store";
 
 
 export const CustomHeader = () => {
+
     const [cartCount] = useState(0);
-    // const [showLogin, setShowLogin] = useState(false);
 
     const { user, logout } = useAuthStore();
 
     return (
 
         <>
-            <header className="sticky top-0 z-50 w-full border-b backdrop-blur bg-slate-50">
-                <div className="container mx-auto px-4 lg:px-1">
+            <header className="sticky top-0 z-50 w-full border-b bg-slate-50 backdrop-blur">
+                <div className="container mx-auto px-4">
                     <div className="flex h-16 items-center justify-between">
 
-                        {/* Logo */}
-                        <div
-                        // className="mr-4"
-                        >
+                        {/*  Logo */}
+                        <div className="flex items-center">
                             <CustomLogo />
                         </div>
 
-                        {/* Navigation - Desktop */}
-                        <nav className="hidden md:flex items-center space-x-2">
-
-
-                            <Link to='/admin' className="text-sm font-medium transition-colors hover:text-primary">
-                                Menu
-                            </Link>
-                            <Link to='/product/:idSlug' className="text-sm font-medium transition-colors hover:text-primary">
-                                Catalogo
-                            </Link>
-                        </nav>
-                        {/* <Dialog>
-                            <DialogTrigger asChild>
-                                <button
-                                // className="text-sm font-medium text-black hover:text-primary"
-                                >
-                                    Hola,<br />
-                                    <strong>Inicia sesión</strong>
-                                </button>
-                            </DialogTrigger>
-
-                            <DialogContent
-                            // className="p-0 border-none bg-transparent shadow-none w-auto max-w-full"
-                            >
-                                <LoginPage />
-                            </DialogContent>
-                        </Dialog> */}
-
-
-                        <div className="flex items-center space-x-4 pl-9 w-64 h-9" >
-                            <div className="text-sm font-medium transition-colors hover:text-primary">
-                                Hola,<br />
-
-                                {
-                                    !user ? (
-
-                                        <strong>
-                                            <Link to="/auth/login"
-                                            // onClick={() => setShowLogin(true)}
-                                            >
-                                                Inicia sesión
-                                            </Link> </strong>
-
-                                    ) : (
-                                        <div className="user-actions">
-                                            <strong className="user-name">{user.fullName}</strong>
-                                            <Link to="/" className="logout-link"
-                                                onClick={logout}
-                                            >
-                                                <span>Cerrar sesión </span>
-                                            </Link>
-
-                                        </div>
-                                    )
-                                }
-                            </div>
-
+                        {/*  Search (desktop only) */}
+                        <div className="hidden md:flex flex-1 justify-center px-6">
+                            <CustomSearchBar />
                         </div>
 
-                        {/* Search and Cart */}
-                        <div className="flex items-center space-x-4">
-                            <CustomSearchBar />
+                        {/* RIGHT */}
+                        <div className="flex items-center gap-6">
 
-                            <Button variant="ghost" size="icon" className="md:hidden">
-                                <Search className="h-5 w-5" />
-                            </Button>
+                            {/* Navigation - Desktop */}
+                            <nav className="hidden md:flex items-center gap-8">
+                                <Link
+                                    to="/product/:idSlug"
+                                    className="text-sm font-medium transition hover:text-primary"
+                                >
+                                    Catálogo
+                                </Link>
 
+                                <Link
+                                    to="/admin"
+                                    className="text-sm font-semibold text-red-900 underline underline-offset-4 decoration-gray-400 transition hover:text-black hover:decoration-gray-600"
+                                >
+                                    Admin
+                                </Link>
+                            </nav>
 
+                            {/* 🛒 Cart - always visible */}
                             <Button variant="ghost" size="icon" className="relative">
                                 <ShoppingBag className="h-5 w-5" />
-                                {cartCount > 0 && <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
-                                    {cartCount}
-                                </span>}
+                                {cartCount > 0 && (
+                                    <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+                                        {cartCount}
+                                    </span>
+                                )}
                             </Button>
+
+                            {/* 👤 Auth */}
+                            {!user ? (
+                                <Link
+                                    to="/auth/login"
+                                    className="flex flex-col text-sm leading-tight hover:text-primary"
+                                >
+                                    <span className="text-sm text-black-500">Hola, </span>
+
+                                    {/* Desktop */}
+                                    <strong className="hidden sm:block">
+                                        Inicia sesión
+                                    </strong>
+
+                                    {/* Mobile */}
+                                    <strong className="block sm:hidden">
+                                        Entrar
+                                    </strong>
+                                </Link>
+                            ) : (
+                                <div className="flex flex-col text-sm leading-tight">
+                                    <span className="text-sm text-black-500">Hola,</span>
+
+                                    <div className="flex items-center gap-6">
+                                        <strong className="font-semibold">
+                                            {user.fullName.split(" ")[0]}
+                                        </strong>
+
+                                        <button
+                                            onClick={logout}
+                                            className="text-sm font-medium text-gray-600 hover:underline"
+                                        >
+                                            Cerrar sesión
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
+
                     </div>
                 </div>
             </header>

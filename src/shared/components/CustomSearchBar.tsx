@@ -14,13 +14,13 @@ export const CustomSearchBar = () => {
     };
 
     return (
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="w-full">
             <div className="relative">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
 
                 <Input
                     placeholder="Buscar productos..."
-                    className="pl-12 w-84 h-9"
+                    className="pl-10 w-full h-9"
                     onChange={handleSearch}
                 />
             </div>

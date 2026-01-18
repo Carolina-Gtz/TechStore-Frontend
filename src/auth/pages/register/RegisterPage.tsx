@@ -1,21 +1,65 @@
+import { useAuthStore } from "@/auth/store/auth.store";
 import { CustomLogo } from "@/components/custom/customLogo";
 import { Button } from "@/components/ui/button";
-import { CustomHeader } from "@/shared/components/CustomHeader";
-import { Link } from "react-router";
+import { useState, type FormEvent } from "react";
+import { Link, useNavigate } from "react-router";
 
 export function RegisterPage() {
+
+    const navigate = useNavigate();
+    const { register } = useAuthStore()
+
+    const [error, setError] = useState<string | null>(null);
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{1,25}$/;
+
+    const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setError(null);
+
+        const formData = new FormData(event.currentTarget);
+
+        const fullName = formData.get('fullName') as string;
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+
+        /*Validación frontend*/
+        if (!passwordRegex.test(password)) {
+            setError(
+                "La contraseña debe tener mayúscula, minúscula, número y máximo 25 caracteres"
+            );
+            return;
+        }
+
+        try {
+
+            const isValid = await register(fullName, email, password);
+
+            if (isValid) {
+                navigate('/');
+            } else {
+                setError("Ya estás autenticado o el usuario ya existe");
+            }
+
+        } catch (err: any) {
+
+            const backendMessage =
+                err?.response?.data?.message;
+
+            if (Array.isArray(backendMessage)) {
+                setError(backendMessage.join(" | "));
+            } else if (typeof backendMessage === "string") {
+                setError(backendMessage);
+            } else {
+                setError("Ocurrió un error inesperado");
+            }
+        }
+    };
+
     return (
         <>
-
             <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-
                 <div className="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-md mx-auto">
-                    {/* <div
-                // className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
-                >
-                    <div
-                        className="bg-white rounded-2xl shadow-2xl p-10  w-full max-w-md mx-auto"
-                    > */}
 
                     {/* Logo */}
                     <CustomLogo />
@@ -30,9 +74,11 @@ export function RegisterPage() {
                     {/* Formulario */}
                     <form
                         className="space-y-4 "
+                        onSubmit={handleRegister}
                     >
                         <input
-                            id="FullName"
+                            id="fullName"
+                            name="fullName"
                             type="text"
                             placeholder="Nombre del usuario"
                             className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-black outline-none"
@@ -40,6 +86,7 @@ export function RegisterPage() {
                         />
                         <input
                             id="email"
+                            name="email"
                             type="email"
                             placeholder="Correo electrónico"
                             className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-black outline-none"
@@ -48,11 +95,17 @@ export function RegisterPage() {
 
                         <input
                             id="password"
+                            name="password"
                             type="password"
                             placeholder="Contraseña"
                             className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-black outline-none"
                             required
                         />
+                        {error && (
+                            <p className="text-red-600 text-sm text-center">
+                                {error}
+                            </p>
+                        )}
 
                         <Button
                             className="w-full bg-black hover:bg-gray-800 text-white"
@@ -68,14 +121,6 @@ export function RegisterPage() {
                             <span className="relative z-10 bg-white px-2 text-muted-foreground">O ingresa con</span>
                         </div>
 
-                        {/* Social */}
-                        {/* <div
-                        className="grid grid-cols-3 gap-4 mb-4"
-                    >
-                        <Button variant="outline">Apple</Button>
-                        <Button variant="outline">Google</Button>
-                        <Button variant="outline">Meta</Button>
-                    </div> */}
 
                         <div className="grid grid-cols-3 gap-4">
                             <Button variant="outline" className="w-full">
@@ -120,13 +165,9 @@ export function RegisterPage() {
                                 Inicia sesion
                             </Link>
                         </p>
-
                     </form>
                 </div>
-
             </div>
-
-
         </>
     );
 }

@@ -12,8 +12,20 @@ export interface UpdateProductPayload {
 
 export const updateProductAction = async ({
     id,
+    imagen,
     ...payload
 }: UpdateProductPayload) => {
-    const { data } = await techStoreApi.patch(`/products/${id}`, payload)
+
+    const normalizedImage = imagen
+        ? new URL(imagen).pathname
+        : undefined
+
+    const { data } = await techStoreApi.patch(`/products/${id}`,
+        {
+            ...payload,
+            imagen: normalizedImage
+        }
+    )
     return data
+
 }

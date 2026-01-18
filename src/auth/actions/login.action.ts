@@ -8,9 +8,6 @@ export const loginAction = async (email: string, password: string): Promise<Auth
             password
         });
 
-        console.log(data)
-        console.log(email, password)
-
         return data;
 
     } catch (error) {

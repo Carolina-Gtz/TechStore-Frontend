@@ -41,8 +41,6 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
     /**Action */
     login: async (email, password) => {
 
-        console.log({ email, password })
-
         try {
 
             const data = await loginAction(email, password);

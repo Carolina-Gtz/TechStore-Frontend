@@ -12,8 +12,6 @@ export const CustomSearchBox = () => {
 
     const handleSearch = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Aquí conectas tu buscador real
-        console.log("Buscando:", query);
 
     };
     return (

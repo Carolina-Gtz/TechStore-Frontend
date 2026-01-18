@@ -18,7 +18,6 @@ export const getProductsAction = async (option: Options): Promise<ProductsRespon
         imagen: `${import.meta.env.VITE_ASSETS_URL}${product.imagen}`
     }))
 
-    console.log({ data });
     return productosConURL
 
 }

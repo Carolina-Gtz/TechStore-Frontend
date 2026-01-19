@@ -13,11 +13,12 @@ export interface ProductFormData {
 }
 
 interface Props {
-    defaultValues?: ProductFormData
-    onSubmit: (data: ProductFormData) => void
+    defaultValues?: ProductFormData;
+    onSubmit: (data: ProductFormData) => void;
+    error?: string | null;
 }
 
-export const ProductForm = ({ defaultValues, onSubmit }: Props) => {
+export const ProductForm = ({ defaultValues, onSubmit, error }: Props) => {
     const { register, handleSubmit, formState: { errors }
     } = useForm<ProductFormData>({
         defaultValues
@@ -28,6 +29,12 @@ export const ProductForm = ({ defaultValues, onSubmit }: Props) => {
             onSubmit={handleSubmit(onSubmit)}
             className="bg-white p-6 rounded shadow max-w-xl space-y-4"
         >
+
+            {error && (
+                <p className="text-sm text-red-600 text-center">
+                    {error}
+                </p>
+            )}
             <Input
                 placeholder="Nombre"
                 {...register("nombre", { required: 'El nombre es obligatorios' })}

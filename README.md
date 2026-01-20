@@ -34,7 +34,7 @@ El frontend consume una API REST real, mostrando productos, categorías, carrito
   - Gestión de sesiones seguras.
 
 - 👤 **Panel de administración**
-  - Gestión de usuarios.
+  - Gestión de usuarios (crear, editar, eliminar).
   - Gestión de productos (crear, editar, eliminar).
   - Acceso restringido por roles.
 

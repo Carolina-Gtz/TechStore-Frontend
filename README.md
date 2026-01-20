@@ -3,7 +3,7 @@
 [Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)
 
 
-##TechStore Online — Frontend##
+## TechStore Online — Frontend ##
 
 TechStore Online es una interfaz de usuario desarrollada en React, diseñada para ofrecer una experiencia de compra rápida, optimizada para dispositivos móviles y optimización con React Query, manejo eficiente de caché, estado y actualizaciones de datos.
 

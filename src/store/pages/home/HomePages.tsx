@@ -13,7 +13,7 @@ export const HomePages = () => {
     const { data } = useProducts();
 
     const showResults = query.trim().length > 0;
-
+    console.log(import.meta.env.VITE_API_URL);
     return (
         <>
             <CustomHeader />

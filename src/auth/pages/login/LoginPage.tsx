@@ -1,5 +1,5 @@
 import { useAuthStore } from "@/auth/store/auth.store";
-import { CustomLogo } from "@/components/custom/customLogo";
+import { CustomLogo } from "@/components/custom/CustomLogo";
 import { Button } from "@/components/ui/button";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router";

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, Users, BarChart3, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
-import { CustomLogo } from '@/components/custom/customLogo';
+import { CustomLogo } from '@/components/custom/CustomLogo';
 import { Link } from 'react-router';
 import { useAuthStore } from '@/auth/store/auth.store';
 
@@ -45,10 +45,7 @@ export const AdminSidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle }) 
             return (
               <li key={index}>
                 <Link to={item.to || '/admin'}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-all duration-200 group ${item.active
-                    ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                    }`}
+                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-all duration-200 group`}
                 >
                   <Icon size={20} className="flex-shrink-0" />
                   {!isCollapsed && (

@@ -1,73 +1,124 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛍️ TechStore - Frontend (React + Vite)
 
-Currently, two official plugins are available:
+##TechStore Online — Frontend** 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TechStore Online es una interfaz de usuario desarrollada en React, diseñada para ofrecer una experiencia de compra rápida, optimizada para dispositivos móviles y optimización con React Query, manejo eficiente de caché, estado y actualizaciones de datos.
 
-## React Compiler
+El sistema permite a los usuarios navegar por el catálogo, registrarse, iniciar sesión, gestionar su carrito, realizar pedidos y seguir el estado de sus compras. Los administradores pueden gestionar productos, inventario y pedidos desde un panel especializado.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+El frontend consume una API REST real, mostrando productos, categorías, carritos de compra y flujos de autenticación.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚙️ Tecnologías Principales
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React + Vite
+- TypeScript
+- React Router
+- TanStack React Query
+- Axios
+- TailwindCSS
+- Shadcn/UI
+- ESLint + Prettier
+  
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🚀 Funcionalidades Principales
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Catálogo dinámico de productos, Secciones destacadas y productos más vendidos renderizados desde el backend.
+Consumo real desde backend, incluyendo filtros por categoría, búsqueda y productos destacados.
+
+---
+
+### 👤 Autenticación
+
+Login integrado con API (JWT) autenticación de usuario, registro de usuarios, recuperación de contraseña,
+Edición de perfil: nombre correo, contraseña, dirección de envío.
+
+---
+
+### 🛒 Catálogo y Carrito
+
+Mostrar catálogo de productos, navegación por categorías, búsqueda y filtros 
+Agregar, modificar y eliminar productos, mostrar disponibilidad según inventario.
+Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carrito, guardado temporal del carrito 
+
+---
+
+### ⚙️ Administración
+
+- Edición de perfil: nombre correo, contraseña, Roles de usuario (cliente / administrador)  
+- Agregar, editar, eliminar productos, actualizar stock, gestionar categorías  
+- Ver pedidos, estado pendientes y fecha,   
+- Filtros de pedidos por fecha/estado,
+- Gestión de envío de productos
+---
+
+### 💳 Checkout y Pedidos
+
+Selección de dirección de envío, selección de método de pago, resumen del pedido, confirmación de pago, generación de número de pedido  
+
+---
+
+## Instalación y ejecución
+
+### 1. Clonar el repositorio
+
+```bash
+npm install https://github.com/Carolina-Gtz/TechStore-Frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/Carolina-Gtz/TechStore-Frontend
+cd techstore-frontend
 ```
+### 2. Instalar dependencias
+```bash
+npm install
+```
+
+### 3. Configurar variables de entorno
+Crear un archivo .env basado en .env.template:
+```bash
+VITE_API_URL=http://localhost:3000
+```
+
+### 4. Verificar que el backend este corriendo en el puerto 3000
+```bash
+http://localhost:3000
+```
+
+### 5. Ejecutar en modo desarrollo
+```bash
+npm run dev
+```
+
+### 6. Build para producción
+```bash
+npm run build
+```
+
+El proyecto estará disponible en:
+👉 http://localhost:5173
+
+
+## 🧠 Arquitectura Frontend + Backend
+
+El proyecto está compuesto por dos repositorios principales:
+
+**Frontend (React + Vite)** | Interfaz web con integración API REST | [TechStore-Frontend](https://github.com/Carolina-Gtz/TechStore-Frontend) |
+**Backend (Node.js + NestJS)** | API RESTful, base de datos y lógica de negocio | [TechStore-Backend](https://github.com/Carolina-Gtz/TechStore-Backend) |
+
+Ambos proyectos se comunican mediante solicitudes HTTP a través de la **API REST** implementada en el backend.
+
+---
+
+## 🧑‍💻 Autora
+
+**👩‍💻 Yuleidis Carolina Gutiérrez Quintana**  
+Desarrolladora Fullstack en formación | React - Node.js - PostgreSQL  
+
+📧 **Correo:** [yuleidis.gtz@gmail.com](mailto:yuleidis.gtz@gmail.com)  
+💼 **LinkedIn:** [Carolina Gutiérrez Quintana](https://www.linkedin.com/in/carolina-gutierrez-quintana/)  
+🐙 **GitHub:** [Carolina-Gtz](https://github.com/Carolina-Gtz)

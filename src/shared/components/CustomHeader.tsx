@@ -1,7 +1,7 @@
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { CustomLogo } from "@/components/custom/customLogo";
+import { CustomLogo } from "@/components/custom/CustomLogo";
 import { Link } from "react-router";
 // import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog";
 import { CustomSearchBar } from "./CustomSearchBar";

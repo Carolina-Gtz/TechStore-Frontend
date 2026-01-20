@@ -1,12 +1,12 @@
-
 import { useSearchParams } from "react-router";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import type { ChangeEvent } from "react";
 
 export const CustomSearchBar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const handleSearch = (e) => {
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
 
         searchParams.set("query", value);

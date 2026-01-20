@@ -16,6 +16,9 @@ import { AdminProductCreatePage } from "./admin/pages/product/AdminProductCreate
 import { AdminProductUpdatePage } from "./admin/pages/product/AdminProductUpdatePage";
 
 import { AdminRoute, NotAuthenticatedRoute } from "./components/routes/ProtectedRoutes";
+import { AdminUsersPage } from "./admin/pages/users/AdminUsersPage";
+import { AdminUserCreatePage } from "./admin/pages/user/AdminUserCreatePage";
+import { AdminUserUpdatePage } from "./admin/pages/user/AdminUserUpdatePage";
 
 
 const AuthLayout = lazy(() => import('./auth/layouts/AuthLayout'))
@@ -47,7 +50,7 @@ export const appRouter = createBrowserRouter([
         path: 'auth',
         element:
             (<NotAuthenticatedRoute>
-                <AuthLayout />,
+                <AuthLayout />
             </NotAuthenticatedRoute>),
         children: [
             {
@@ -70,7 +73,7 @@ export const appRouter = createBrowserRouter([
         path: '/admin',
         element:
             (<AdminRoute>
-                <AdminLayout />,
+                <AdminLayout />
             </AdminRoute>),
         children: [
             {
@@ -94,6 +97,19 @@ export const appRouter = createBrowserRouter([
                 path: 'products/:id/edit',
                 element: <AdminProductUpdatePage />,
             },
+            {
+                path: 'users',
+                element: <AdminUsersPage />,
+            },
+            {
+                path: 'users/new',
+                element: <AdminUserCreatePage />,
+            },
+            {
+                path: "users/:id/edit",
+                element: <AdminUserUpdatePage />,
+            },
+
         ]
     },
     {

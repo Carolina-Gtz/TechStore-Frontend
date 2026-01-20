@@ -1,5 +1,4 @@
 import { Outlet } from "react-router"
-import { CustomHeader } from "../../shared/components/CustomHeader"
 
 export const StoreLayout = () => {
     return (

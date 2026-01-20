@@ -4,6 +4,8 @@
 
 🔗 **[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)**
 
+USURIO ADMON: test-login-reacttech@email.com 
+PASSWORD: Password123
 
 ## TechStore Online — Frontend ##
 

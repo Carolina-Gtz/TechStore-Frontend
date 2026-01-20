@@ -2,7 +2,11 @@
 # 🛍️ TechStore - Frontend (React + Vite) 
 ### 🌐 Demo
 
-🔗 **[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)** (USURIO ADMON: test-login-reacttech@email.com)
+🔗 **[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)** 
+
+### NOTA: ###  
+Para probar en el panel de admin ingresar con el usuario:
+(USURIO ADMON: test-login-reacttech@email.com)
 PASSWORD: Password123
 
 ## TechStore Online — Frontend ##

@@ -16,6 +16,7 @@ El frontend consume una API REST real, mostrando productos, categorías, carrito
 <table>
   <tr>
     <td width="60%" valign="top">
+
 ### 🚀 Características principales
 
 - 🔐 Autenticación con **JWT**
@@ -34,6 +35,7 @@ El frontend consume una API REST real, mostrando productos, categorías, carrito
 />
   </tr>
 </table>
+
 
 ---
 

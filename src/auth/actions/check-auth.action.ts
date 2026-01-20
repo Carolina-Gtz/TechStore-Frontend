@@ -8,11 +8,7 @@ export const checkAuthAction = async (): Promise<AuthResponse> => {
         throw new Error('No token found')
 
     try {
-        const { data } = await techStoreApi.get<AuthResponse>('/auth/check-status', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
+        const { data } = await techStoreApi.get<AuthResponse>('/auth/check-status');
 
         localStorage.setItem('token', data.token);
 
@@ -21,8 +17,6 @@ export const checkAuthAction = async (): Promise<AuthResponse> => {
     } catch (error) {
         localStorage.removeItem('token')
         throw new Error(`Token expired or not valid, error ${error} `)
-        console.log(
-            `Token expired or not valid, error ${error} `
-        )
+
     }
 }

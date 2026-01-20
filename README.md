@@ -1,6 +1,8 @@
 
 # 🛍️ TechStore - Frontend (React + Vite) 
-[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)
+### 🌐 Demo
+
+🔗 **[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)**
 
 
 ## TechStore Online — Frontend ##

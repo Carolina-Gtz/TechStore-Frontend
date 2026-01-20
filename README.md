@@ -6,8 +6,8 @@
 
 ### NOTA: ###  
 Para probar en el panel de admin ingresar con el usuario:
-(USURIO ADMON: test-login-reacttech@email.com)
-PASSWORD: Password123
+- USURIO ADMON: test-login-reacttech@email.com
+- PASSWORD: Password123
 
 ## TechStore Online — Frontend ##
 

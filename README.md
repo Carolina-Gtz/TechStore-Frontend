@@ -1,7 +1,9 @@
 
-# 🛍️ TechStore - Frontend (React + Vite)
+# 🛍️ TechStore - Frontend (React + Vite) 
+[Demo: Netlify – Techstore Frontend](https://techstore-frontend.netlify.app/)
 
-##TechStore Online — Frontend** 
+
+##TechStore Online — Frontend##
 
 TechStore Online es una interfaz de usuario desarrollada en React, diseñada para ofrecer una experiencia de compra rápida, optimizada para dispositivos móviles y optimización con React Query, manejo eficiente de caché, estado y actualizaciones de datos.
 
@@ -24,42 +26,25 @@ El frontend consume una API REST real, mostrando productos, categorías, carrito
   
 ---
 
-### 🚀 Funcionalidades Principales
+### 🚀 Funcionalidades principales
 
-Catálogo dinámico de productos, Secciones destacadas y productos más vendidos renderizados desde el backend.
-Consumo real desde backend, incluyendo filtros por categoría, búsqueda y productos destacados.
+- 🔐 **Autenticación y autorización**
+  - Login y registro de usuarios.
+  - Autenticación mediante **JWT (JSON Web Tokens)**.
+  - Gestión de sesiones seguras.
 
----
+- 👤 **Panel de administración**
+  - Gestión de usuarios.
+  - Gestión de productos (crear, editar, eliminar).
+  - Acceso restringido por roles.
 
-### 👤 Autenticación
+- 📦 **Catálogo dinámico de productos**
+  - Renderizado desde el backend.
+  - Productos destacados y más vendidos.
 
-Login integrado con API (JWT) autenticación de usuario, registro de usuarios, recuperación de contraseña,
-Edición de perfil: nombre correo, contraseña, dirección de envío.
-
----
-
-### 🛒 Catálogo y Carrito
-
-Mostrar catálogo de productos, navegación por categorías, búsqueda y filtros 
-Agregar, modificar y eliminar productos, mostrar disponibilidad según inventario.
-Agregar , modificar cantidad y eliminar productos  al carrito, resumen del carrito, guardado temporal del carrito 
-
----
-
-### ⚙️ Administración
-
-- Edición de perfil: nombre correo, contraseña, Roles de usuario (cliente / administrador)  
-- Agregar, editar, eliminar productos, actualizar stock, gestionar categorías  
-- Ver pedidos, estado pendientes y fecha,   
-- Filtros de pedidos por fecha/estado,
-- Gestión de envío de productos
----
-
-### 💳 Checkout y Pedidos
-
-Selección de dirección de envío, selección de método de pago, resumen del pedido, confirmación de pago, generación de número de pedido  
-
----
+- 🔍 **Consumo real de backend**
+  - Filtros por categoría.
+  - Búsqueda de productos.
 
 ## Instalación y ejecución
 

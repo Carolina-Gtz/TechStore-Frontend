@@ -13,6 +13,33 @@ El sistema permite a los usuarios navegar por el catálogo, registrarse, iniciar
 
 El frontend consume una API REST real, mostrando productos, categorías, carritos de compra y flujos de autenticación.
 
+<table>
+  <tr>
+    <td width="60%" valign="top">
+
+## TechStore Online — Backend
+
+TechStore Online es un backend desarrollado en **NestJS**, diseñado para ofrecer una arquitectura **modular, escalable y segura** para una plataforma de comercio electrónico moderna.
+
+### 🚀 Características principales
+
+- 🔐 Autenticación con **JWT**
+- 👤 Gestión de usuarios
+- 📦 Manejo de productos
+- ✅ Validaciones robustas
+- 🧱 Buenas prácticas de arquitectura
+
+    </td>
+    <td width="40%" align="center">
+
+<img
+  src="https://github.com/user-attachments/assets/ed9ad185-075c-4423-9f21-9d9bac94e71e"
+  width="300"
+  alt="TechStore preview"
+/>
+  </tr>
+</table>
+
 ---
 
 ### ⚙️ Tecnologías Principales

@@ -16,8 +16,9 @@ export const getProductsAction = async (option: Options): Promise<ProductsRespon
     const productosConURL = data.map(product => ({
         ...product,
         imagen: `${import.meta.env.VITE_ASSETS_URL}${product.imagen}`
-    }))
 
+    }))
+    console.log(productosConURL)
     return productosConURL
 
 }

@@ -88,11 +88,11 @@ export const featuredProducts: Product[] = [
 
 export const promotionalSlides = [
     {
-        img: "/src/assets/product/bannerPromocionalMinimalista.png",
+        img: "/banner-promocional.png",
         title: "¡Promociones!",
     },
     {
-        img: "/src/assets/product/prodAccesrios-1.png",
+        img: "/banner-promocional.png",
         title: "¡Promociones!",
     },
 ];
